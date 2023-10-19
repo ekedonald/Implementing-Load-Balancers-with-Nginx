@@ -253,7 +253,7 @@ sudo vi /etc/nginx/conf.d/loadbalancer.conf
 ```sh
         upstream backend_servers {
 
-            # your are to replace the public IP and Port to that of your webs ervers
+            # your are to replace the public IP and Port to that of your web servers
             server 127.0.0.1:8000; # public IP and port for web server 1
             server 127.0.0.1:8000; # public IP and port for web server 2
 
@@ -261,7 +261,7 @@ sudo vi /etc/nginx/conf.d/loadbalancer.conf
 
         server {
             listen 80;
-            server_name <your load balancer's public IP addres>; # provide your load balancers public IP address
+            server_name <your_load_balancers_public_ip_addres>; # provide your load balancers public IP address
 
             location / {
                 proxy_pass http://backend_servers;
@@ -291,4 +291,3 @@ http://<public_ip_address_of_nginx_load_balancer_server>:80
 ```
 
 _You will notice that each time you refresh the page, it displays the content of one of the two **Apache Web Servers**. Note that the **Load Balancing Algorithm** used in configuring the **Nginx Load Balancer Server** is the **Round Robin Algorithm**._
-
