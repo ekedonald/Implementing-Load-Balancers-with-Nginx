@@ -170,4 +170,4 @@ Repeat steps 1 - 3 but ensure the following parameters are changed to these when
 
 ### Step 5: Provisioning the Nginx Load Balancer Server
 
-### Step 6: Configuring Nginx as a Load Balancer 
+### Step 6: Configuring Nginx as the Load Balancer between the Two Apache Web Servers
