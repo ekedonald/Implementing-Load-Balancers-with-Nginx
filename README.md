@@ -272,6 +272,8 @@ sudo vi /etc/nginx/conf.d/loadbalancer.conf
         }
 ```
 
+*The **upstream backend_servers** block defines a group of backend servers. The **server** directive lists the addresses and ports of your backend server. The **proxy_pass** directive ins the **location** block sets up load balancing and passes trequests to the backend servers. The **proxy_set_header** directives pass necessary headers to the backend servers to correctly handle requests.*
+
 * Run the following command to test if the Nginx Load Balancer Server's configuration was successful:
 
 ```sh
