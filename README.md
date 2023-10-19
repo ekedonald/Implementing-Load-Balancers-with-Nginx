@@ -14,6 +14,10 @@ In this manner, a load balancer performs the following functions:
 Nginx is a versatile software, it can act like a web server, reverse proxy and a load balancer depending on configuration.
 
 ## Implementing Nginx as a Basic Load Balancer between Two Web Servers
+
+### Prerequisite
+1. Ensure you have an AWS account. If you don't have an account, [sign up for AWS here.](https://portal.aws.amazon.com/billing/signup?type=enterprise#/start/email)
+
 The following steps are taken to implement Nginx as a basic load balancer between two web servers:
 
 ### Step 1: Provisioning the 1st Apache Web Server
