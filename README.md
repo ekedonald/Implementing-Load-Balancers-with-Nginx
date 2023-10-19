@@ -110,7 +110,7 @@ sudo systemctl reload apache2
 sudo vi index.html
 ```
 
-* Before pasting the html code block shown below, get the Public IPv4 address of the Apache_Web_Server_01 by clicking the Instance ID of the Instance and copying the address.
+* Before pasting the html code block shown below, get the **Public IPv4 address** of the **Apache_Web_Server_01** by clicking the Instance ID of the Instance and copying the address.
 
 ```sh
         <!DOCTYPE html>
@@ -143,6 +143,14 @@ sudo cp -f ./index.html /var/www/html/index.html
 sudo systemctl reload apache2
 ```
 
+* Go to your your browser and paste the following url:
+
+```sh
+http://<public_ip_address_of_apache_web_server_1>:8000
+```
+
+_The Web Page Should Look Like This_
+
 ### Step 4: Provisioning and Configuring the 2nd Apache Web Server
 
 Repeat steps 1 - 3 but ensure the following parameters are changed to these when implementing the steps:
@@ -167,7 +175,117 @@ Repeat steps 1 - 3 but ensure the following parameters are changed to these when
         </body>
         </html>
 ```
+After completing the steps, go to your your browser and paste the following url:
+
+```sh
+http://<public_ip_address_of_apache_web_server_2>:8000
+```
+
+_The Web Page Should Look Like This_
 
 ### Step 5: Provisioning the Nginx Load Balancer Server
 
+* On the Instances tab, click on the Launch Instance button.
+
+* On the Name Box and Amazon Machine Image, type **Nginx Load Balancer Server** and **ubuntu** respectively.
+
+* Select **Ubuntu Server 22.04 LTS (HVM), SSD Volume Type** as the Amazon Machine Image.
+
+* Click on the key pair drop down button and select **web11** as the key pair.
+
+* Create a new security group and select allow HTTP traffic from the internet.
+
+* Click on the Launch Instance button.
+
+* You will see a prompt shown below, click on the Instance ID highlighted.
+
+* Click on the Intance ID of the *Nginx Load Balancer Server** Instance you just created.
+
+* Click on the Connect button.
+
+* Copy the highlighted command shown below:
+
+* Open your terminal.
+
+* Go to the Downloads directory (i.e `.pem` key pair is stored here) using the command shown below:
+
+```sh
+cd Downloads
+```
+
+* Run the following command to give read permissions to the `.pem` key pair file:
+
+```sh
+chmod 400 <private-key-pair-name>.pem
+```
+
+* SSH into the **Nginx Load Balancer Server** Instance using the command shown below:
+
+```sh
+ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
+```
+
+* Update the list of packages in the package manager and install the apache server package installation using the following command:
+
+```sh
+sudo apt update && sudo apt install nginx -y
+```
+
+* Verify that Nginx is running using the command shown below:
+
+```sh
+sudo systemctl status nginx
+```
+
 ### Step 6: Configuring Nginx as the Load Balancer between the Two Apache Web Servers
+
+* Run the following command to create and open a load balancer configuration file:
+
+```sh
+sudo vi /etc/nginx/conf.d/loadbalancer.conf
+```
+
+* Paste the code block shown below and save the file:
+
+```sh
+        upstream backend_servers {
+
+            # your are to replace the public IP and Port to that of your webservers
+            server 127.0.0.1:8000; # public IP and port for webserser 1
+            server 127.0.0.1:8000; # public IP and port for webserver 2
+
+        }
+
+        server {
+            listen 80;
+            server_name <your load balancer's public IP addres>; # provide your load balancers public IP address
+
+            location / {
+                proxy_pass http://backend_servers;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            }
+        }
+```
+
+* Run the following command to test if the Nginx Load Balancer Server's configuration was successful:
+
+```sh
+sudo nginx -t
+```
+
+* Reload the Nginx Load Balancer Server to load the new configuration changes using the command shown below:
+
+```sh
+sudo nginx -s reload
+```
+
+* Go to your browser and paste the url shown below:
+
+```sh
+http://<public_ip_address_of_nginx_load_balancer_server>:80
+```
+
+_You will notice that each time you refresh the page, it displays the content of one of the two **Apache Web Servers**. Note that the **Load Balancing Algorithm** used in configuring the **Nginx Load Balancer Server** is the **Round Robin Algorithm**._
+
