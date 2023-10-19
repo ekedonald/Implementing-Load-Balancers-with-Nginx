@@ -199,7 +199,7 @@ _The Web Page Should Look Like This_
 
 * You will see a prompt shown below, click on the Instance ID highlighted.
 
-* Click on the Intance ID of the *Nginx Load Balancer Server** Instance you just created.
+* Click on the Intance ID of the **Nginx Load Balancer Server** Instance you just created.
 
 * Click on the Connect button.
 
