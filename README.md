@@ -143,7 +143,7 @@ sudo cp -f ./index.html /var/www/html/index.html
 sudo systemctl reload apache2
 ```
 
-* Go to your your browser and paste the following url:
+* Go to your your browser and paste the following URL:
 
 ```sh
 http://<public_ip_address_of_apache_web_server_1>:8000
@@ -175,7 +175,7 @@ Repeat steps 1 - 3 but ensure the following parameters are changed to these when
         </body>
         </html>
 ```
-After completing the steps, go to your your browser and paste the following url:
+After completing the steps, go to your your browser and paste the following URL:
 
 ```sh
 http://<public_ip_address_of_apache_web_server_2>:8000
@@ -281,7 +281,7 @@ sudo nginx -t
 sudo nginx -s reload
 ```
 
-* Go to your browser and paste the url shown below:
+* Go to your browser and paste the URL shown below:
 
 ```sh
 http://<public_ip_address_of_nginx_load_balancer_server>:80
