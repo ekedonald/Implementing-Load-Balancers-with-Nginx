@@ -33,17 +33,17 @@ The following steps are taken to implement Nginx as a basic load balancer betwee
 
 * On the Network Settings tab, click on the Edit button to configure the Security Group Inbound Rules.
 
-* Click on Add Security Group Rule on the bottom and on the Security Group Name, Source Type, Port Range type the following: **Apache_Server_Security_Group**, **Anywhere** and **8000** respectively.
+* Click on Add Security Group Rule on the bottom and the Security Group Name, Source Type and Port Range type the following: **Apache_Server_Security_Group**, **Anywhere** and **8000** respectively.
 
 * Scroll down to the bottom and click on the Launch Instance Button.
 
 * You will see a prompt shown below, click on the Instance ID highlighted.
 
-* Click on the Intance ID of the **Apache_Web_Server_01** Instance you just created.
+* Click on the Instance ID of the **Apache_Web_Server_01** Instance you just created.
 
 * Click on the Connect button.
 
-* Copy the highlighted commands shown below:
+* Copy the highlighted commands shown below to connect to the Instance:
 
 * Open your terminal.
 
@@ -59,7 +59,7 @@ cd Downloads
 chmod 400 <private-key-pair-name>.pem
 ```
 
-* SSH into the Apache_Web_Server_01 Instance using the command shown below:
+* SSH into the **Apache_Web_Server_01** Instance using the command shown below:
 
 ```sh
 ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
@@ -87,14 +87,13 @@ sudo vi /etc/apache2/ports.conf
 
 * Add a new Listen directive for port 8000 as shown below and save the file:
 
-
-* Run the following command to open the default configuration file of the Apache.
+* Run the following command to open the default configuration file of Apache.
 
 ```sh
 sudo vi /etc/apache2/sites-available/000-default.conf
 ```
 
-* Change the listening port ot the Virtualhost from 80 to 8000 as shown below and save the file:
+* Change the listening port of the Virtualhost from 80 to 8000 as shown below and save the file:
 
 * Reload the Apache Web Server to load the new configuration changes using the command shown below:
 
@@ -104,7 +103,7 @@ sudo systemctl reload apache2
 
 ### Step 3: Creating a Webpage for the 1st Apache Web Server 
 
-* Create and open a new **index.html** file with command shown below:
+* Create and open a new **index.html** file with the command shown below:
 
 ```sh
 sudo vi index.html
@@ -125,7 +124,7 @@ sudo vi index.html
         </html>
 ```
 
-* Change the file ownership of the **index.html** file so that the Nginx Load Balancer server can have access to the file using the command shown below:
+* Change the file ownership of the **index.html** file so that the Nginx Load Balancer Server can have access to the file using the command shown below:
 
 ```sh
 sudo chown www-data:www-data ./index.html
@@ -155,7 +154,7 @@ _The Web Page Should Look Like This_
 
 Repeat steps 1 - 3 but ensure the following parameters are changed to these when implementing the steps:
 
-1. Name of Instance: Apache_Web_Server_02
+1. Name of the Instance: Apache_Web_Server_02
 
 2. Key pair: web11
 
@@ -175,7 +174,7 @@ Repeat steps 1 - 3 but ensure the following parameters are changed to these when
         </body>
         </html>
 ```
-After completing the steps, go to your your browser and paste the following URL:
+After completing the steps, go to your browser and paste the following URL:
 
 ```sh
 http://<public_ip_address_of_apache_web_server_2>:8000
@@ -191,7 +190,7 @@ _The Web Page Should Look Like This_
 
 * Select **Ubuntu Server 22.04 LTS (HVM), SSD Volume Type** as the Amazon Machine Image.
 
-* Click on the key pair drop down button and select **web11** as the key pair.
+* Click on the key pair drop-down button and select **web11** as the key pair.
 
 * Create a new security group and select allow HTTP traffic from the internet.
 
@@ -199,11 +198,11 @@ _The Web Page Should Look Like This_
 
 * You will see a prompt shown below, click on the Instance ID highlighted.
 
-* Click on the Intance ID of the **Nginx Load Balancer Server** Instance you just created.
+* Click on the Instance ID of the **Nginx Load Balancer Server** Instance you just created.
 
 * Click on the Connect button.
 
-* Copy the highlighted command shown below:
+* Copy the highlighted command shown below to connect to the Instance:
 
 * Open your terminal.
 
@@ -250,9 +249,9 @@ sudo vi /etc/nginx/conf.d/loadbalancer.conf
 ```sh
         upstream backend_servers {
 
-            # your are to replace the public IP and Port to that of your webservers
-            server 127.0.0.1:8000; # public IP and port for webserser 1
-            server 127.0.0.1:8000; # public IP and port for webserver 2
+            # your are to replace the public IP and Port to that of your webs ervers
+            server 127.0.0.1:8000; # public IP and port for web server 1
+            server 127.0.0.1:8000; # public IP and port for web server 2
 
         }
 
