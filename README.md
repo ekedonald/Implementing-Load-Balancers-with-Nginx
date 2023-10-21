@@ -230,6 +230,8 @@ Repeat steps 1 - 3 but ensure the following parameters are changed to these when
         </body>
         </html>
 ```
+![index html2](./images/4.%20index_html.png)
+
 After completing the steps, go to your browser and paste the following URL:
 
 ```sh
@@ -242,17 +244,31 @@ _The Web Page Should Look Like This_
 
 * On the Instances tab, click on the Launch Instance button.
 
+![launch instance](./images/5.%20launch%20instance.png)
+
 * On the Name Box and Amazon Machine Image, type **Nginx Load Balancer Server** and **ubuntu** respectively.
+
+![name box ami](./images/5.%20name%20box%20and%20ami.png)
 
 * Select **Ubuntu Server 22.04 LTS (HVM), SSD Volume Type** as the Amazon Machine Image.
 
+![ubuntu server 22](./images/5.%20select%20ubuntu%2022.png)
+
 * Click on the key pair drop-down button and select **web11** as the key pair.
+
+![keypair drop down](./images/5.%20keypair%20drop-down.png)
 
 * Create a new security group and select allow HTTP traffic from the internet.
 
+![create security group](./images/5.%20create%20security%20group.png)
+
 * Click on the Launch Instance button.
 
+![launch instance button](./images/5.%20launch%20instance%20button.png)
+
 * You will see a prompt shown below, click on the Instance ID highlighted.
+
+![prompt instance](./images/5.%20prompt%20instance%20id.png)
 
 * Click on the Instance ID of the **Nginx Load Balancer Server** Instance you just created.
 
