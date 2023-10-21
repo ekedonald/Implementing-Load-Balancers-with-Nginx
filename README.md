@@ -6,6 +6,8 @@ Modern high‑traffic websites must serve hundreds of thousands, if not millions
 
 A load balancer acts as the “traffic cop” sitting in front of your servers and routing client requests across all servers capable of fulfilling those requests in a manner that maximizes speed and capacity utilization and ensures that no one server is overworked, which could degrade performance. If a single server goes down, the load balancer redirects traffic to the remaining online servers. When a new server is added to the server group, the load balancer automatically starts to send requests to it.
 
+![load balancer](./images/0.%20Load%20Balancer.png)
+
 In this manner, a load balancer performs the following functions:
 * Distributes client requests or network load efficiently across multiple servers.
 * Ensures high availability and reliability by sending requests only to servers that are online.
@@ -23,31 +25,57 @@ The following steps are taken to implement Nginx as a basic load balancer betwee
 ### Step 1: Provisioning the 1st Apache Web Server
 * Open your AWS Management Console, click on EC2.
 
+![aws console](./images/1.%20aws%20mangement%20console.png)
+
 * Click on the Launch Instance button.
+
+![lauch instance](./images/1.%20launch%20instance.png)
 
 * On the Name Box and Amazon Machine Image, type **Apache_Web_Server_01** and **ubuntu** respectively.
 
+![name box ami](./images/1.%20name%20box%20and%20ami.png)
+
 * Select **Ubuntu Server 22.04 LTS (HVM), SSD Volume Type** as the Amazon Machine Image.
+
+![ubuntu server](./images/1.%20ubuntu%20server%2022.png)
 
 * Click on create new key pair.
 
-* Give the key pair name a name of your choice (i.e web11), select `RSA` as the key pair type and `.pem` as the key file format then click on Create key pair. 
+![key pair](./images/1.%20new%20key%20pair.png)
+
+* Give the key pair name a name of your choice (i.e web11), select `RSA` as the key pair type and `.pem` as the key file format then click on Create key pair.
+
+![rsa pem](./images/1.%20pem%20and%20rsa.png)
 
 *Note that the `.pem` key will be downloaded into your Downloads directory on your computer*.
 
 * On the Network Settings tab, click on the Edit button to configure the Security Group Inbound Rules.
 
+![edit security group](./images/1.%20edit%20security%20group.png)
+
 * Click on Add Security Group Rule on the bottom and the Security Group Name, Source Type and Port Range type the following: **Apache_Server_Security_Group**, **Anywhere** and **8000** respectively.
+
+![security group parameters](./images/1.%20security%20group%20parameters.png)
 
 * Scroll down to the bottom and click on the Launch Instance Button.
 
+![lauch instance button](./images/1.%20launch%20instance%20button.png)
+
 * You will see a prompt shown below, click on the Instance ID highlighted.
+
+![instance prompt](./images/1.%20prompt%20instance%20id.png)
 
 * Click on the Instance ID of the **Apache_Web_Server_01** Instance you just created.
 
+![instance id](./images/1.%20instance%20id.png)
+
 * Click on the Connect button.
 
+![connect button](./images/1.%20connect%20button.png)
+
 * Copy the highlighted commands shown below to connect to the Instance:
+
+![highlighted commands](./images/1.%20highlighted%20commands.png)
 
 * Open your terminal.
 
