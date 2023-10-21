@@ -85,11 +85,15 @@ The following steps are taken to implement Nginx as a basic load balancer betwee
 cd Downloads
 ```
 
+![cd downloads](./images/1.%20cd%20downloads.png)
+
 * Run the following command to give read permissions to the `.pem` key pair file:
 
 ```sh
 chmod 400 <private-key-pair-name>.pem
 ```
+
+![chmod keypair](./images/1.%20chmod%20keypair.png)
 
 * SSH into the **Apache_Web_Server_01** Instance using the command shown below:
 
@@ -97,17 +101,23 @@ chmod 400 <private-key-pair-name>.pem
 ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
 ```
 
+![ssh apache instance](./images/1.%20ssh%20apache%20instance.png)
+
 * Update the list of packages in the package manager and install the apache server package installation using the following command:
 
 ```sh
 sudo apt update && sudo apt install apache2 -y
 ```
 
+![update install apache](./images/1.%20sudo%20apt%20update%20&%20apt%20install%20apache2.png)
+
 * Verify that Apache is running using the command shown below:
 
 ```sh
 sudo systemctl status apache2
 ```
+
+![systemctl status apache](./images/1.%20systemctl%20status%20apache2.png)
 
 ### Step 2: Configuring the 1st Apache Server to Serve Content on Port 8000
 
@@ -119,6 +129,8 @@ sudo vi /etc/apache2/ports.conf
 
 * Add a new Listen directive for port 8000 as shown below and save the file:
 
+![vi ports.conf](./images/2.%20vi%20:etc:apache2:ports.png)
+
 * Run the following command to open the default configuration file of Apache.
 
 ```sh
@@ -127,11 +139,15 @@ sudo vi /etc/apache2/sites-available/000-default.conf
 
 * Change the listening port of the Virtualhost from 80 to 8000 as shown below and save the file:
 
+![vi default.conf](./images/2.%20vi%20:etc:apache2:sites-available.png)
+
 * Reload the Apache Web Server to load the new configuration changes using the command shown below:
 
 ```sh
 sudo systemctl reload apache2
 ```
+
+![systemctl reload apache](./images/2.%20systemctl%20reload%20apache2.png)
 
 ### Step 3: Creating a Webpage for the 1st Apache Web Server 
 
@@ -155,6 +171,8 @@ sudo vi index.html
         </body>
         </html>
 ```
+
+![index html](./images/3.%20index_html.png)
 
 * Change the file ownership of the **index.html** file so that the Nginx Load Balancer Server can have access to the file using the command shown below:
 
