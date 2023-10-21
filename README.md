@@ -374,4 +374,8 @@ sudo nginx -s reload
 http://<public_ip_address_of_nginx_load_balancer_server>:80
 ```
 
+![http ip1](./images/6.%20http%20url1.png)
+
+![http ip2](./images/6.%20http%20url2.png)
+
 _You will notice that each time you refresh the page, it displays the content of one of the two **Apache Web Servers**. Note that the **Load Balancing Algorithm** used in configuring the **Nginx Load Balancer Server** is the **Round Robin Algorithm**._
