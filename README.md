@@ -298,17 +298,23 @@ cd Downloads
 ssh -i <private-key-name>.pem ubuntu@<Public-IP-address>
 ```
 
+![ssh pem key](./images/5.%20ssh%20pem%20key.png)
+
 * Update the list of packages in the package manager and install the apache server package installation using the following command:
 
 ```sh
 sudo apt update && sudo apt install nginx -y
 ```
 
+![update and install nginx](./images/5.%20sudo%20apt%20update%20&%20apt%20install%20nginx.png)
+
 * Verify that Nginx is running using the command shown below:
 
 ```sh
 sudo systemctl status nginx
 ```
+
+![systemctl status nginx](./images/5.%20systemctl%20status%20nginx.png)
 
 ### Step 6: Configuring Nginx as the Load Balancer between the Two Apache Web Servers
 
