@@ -180,17 +180,23 @@ sudo vi index.html
 sudo chown www-data:www-data ./index.html
 ```
 
+![chown www-data index.html](./images/3.%20chown%20index_html.png)
+
 * Overwrite the default html file of the Apache Web Server by using the command shown below:
 
 ```sh
 sudo cp -f ./index.html /var/www/html/index.html
 ```
 
+![cp index.html](./images/3.%20cp%20-f%20index_html.png)
+
 * Reload the Apache Web Server to load the new configuration changes using the command shown below:
 
 ```sh
 sudo systemctl reload apache2
 ```
+
+![systemctl reload apache](./images/2.%20systemctl%20reload%20apache2.png)
 
 * Go to your your browser and paste the following URL:
 
