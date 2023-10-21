@@ -348,6 +348,8 @@ sudo vi /etc/nginx/conf.d/loadbalancer.conf
         }
 ```
 
+![loadbalance conf](./images/6.%20vi%20:etc:nginx:confd:loadbalancer.png)
+
 *The **upstream backend_servers** block defines a group of backend servers. The **server** directive lists the addresses and ports of your backend server. The **proxy_pass** directive ins the **location** block sets up load balancing and passes trequests to the backend servers. The **proxy_set_header** directives pass necessary headers to the backend servers to correctly handle requests.*
 
 * Run the following command to test if the Nginx Load Balancer Server's configuration was successful:
@@ -356,11 +358,15 @@ sudo vi /etc/nginx/conf.d/loadbalancer.conf
 sudo nginx -t
 ```
 
+![nginx -t](./images/6.%20sudo%20nginx%20-t.png)
+
 * Reload the Nginx Load Balancer Server to load the new configuration changes using the command shown below:
 
 ```sh
 sudo nginx -s reload
 ```
+
+![nginx -s reload](./images/6.%20sudo%20nginx%20-s%20reload.png)
 
 * Go to your browser and paste the URL shown below:
 
