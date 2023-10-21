@@ -272,9 +272,15 @@ _The Web Page Should Look Like This_
 
 * Click on the Instance ID of the **Nginx Load Balancer Server** Instance you just created.
 
+![instance id](./images/5.%20instance%20id.png)
+
 * Click on the Connect button.
 
+![connnect button](./images/5.%20connect%20button.png)
+
 * Copy the highlighted command shown below to connect to the Instance:
+
+![highlighted command](./images/5.%20highlighted%20command.png)
 
 * Open your terminal.
 
@@ -284,11 +290,7 @@ _The Web Page Should Look Like This_
 cd Downloads
 ```
 
-* Run the following command to give read permissions to the `.pem` key pair file:
-
-```sh
-chmod 400 <private-key-pair-name>.pem
-```
+![cd downloads](./images/5.%20cd%20downloads.png)
 
 * SSH into the **Nginx Load Balancer Server** Instance using the command shown below:
 
