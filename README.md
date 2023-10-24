@@ -238,13 +238,13 @@ After completing the steps, go to your browser and paste the following URL:
 http://<public_ip_address_of_apache_web_server_2>:8000
 ```
 
+![http ip url2](./images/4.%20http%20ip%208000.png)
+
 _The Web Page Should Look Like This_
 
 ### Step 5: Provisioning the Nginx Load Balancer Server
 
 * On the Instances tab, click on the Launch Instance button.
-
-![launch instance](./images/5.%20launch%20instance.png)
 
 * On the Name Box and Amazon Machine Image, type **Nginx Load Balancer Server** and **ubuntu** respectively.
 
