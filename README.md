@@ -204,6 +204,8 @@ sudo systemctl reload apache2
 http://<public_ip_address_of_apache_web_server_1>:8000
 ```
 
+![http ip url2](./images/4.%20http%20ip%208000.png)
+
 _The Web Page Should Look Like This_
 
 ### Step 4: Provisioning and Configuring the 2nd Apache Web Server
