@@ -204,7 +204,7 @@ sudo systemctl reload apache2
 http://<public_ip_address_of_apache_web_server_1>:8000
 ```
 
-![http ip url1]
+![http ip url1](./images/3.%20http%20ip%208000.png)
 
 _The Web Page Should Look Like This_
 
@@ -240,7 +240,7 @@ After completing the steps, go to your browser and paste the following URL:
 http://<public_ip_address_of_apache_web_server_2>:8000
 ```
 
-![http ip url2]
+![http ip url2](./images/4.%20http%20ip%208000.png)
 
 _The Web Page Should Look Like This_
 
